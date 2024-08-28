@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>부모 자식 자손 객체 탐색</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        window.onload = function(){
+            //
+        }
+        /*
+        클릭된 버튼이 인자로 넘어오고 setMsg 함수에서
+        인자로 넘어온 객체의 부모 객체를 찾고 부모의 자식 객체 중 class가 msg인 객체를 찾음
+        찾은 msg 객체에 출력
+        */
+        function setMsg(obj){
+            //js
+            console.log(obj);
+            //객체.parentNode / 객체.parentElement
+            console.log(obj.parentNode);
+            console.log(obj.parentElement);
+            //부모 객체에게 객체 탐색
+            let parent = obj.parentNode;
+            let msgBox = parent.getElementsByClassName("msg");
+            console.log(msgBox);
+            msgBox[0].innerText = "click";
+            //한줄로 함수를 연달아 호출
+            obj.parentNode.getElementsByClassName("msg")[0].innerText = "한줄로 하기";
+            //jquery
+            //객체의 하위 객체에서 찾기
+            //$(CSS식별자).find(css식별자)
+            //jquery의 객체로 변환
+            //$(객체) -> jquery의 객체
+            //console.log($(obj));
+            //부모 객체 호출 jquery객체.parent()
+            console.log($(obj).parent());
+            $(obj).parent().find(".msg").text("jq로 바꾸기");
+        }
+    </script>
+</head>
+<body>
+    <span>
+        <span class="msg">span</span>
+        <input type="button" value="클릭" class="btn" onclick="setMsg(this);">
+    </span><br>
+    <span>
+        <span class="msg">span</span>
+        <input type="button" value="클릭" class="btn" onclick="setMsg(this);">
+    </span><br>
+    <span>
+        <span class="msg">span</span>
+        <input type="button" value="클릭" class="btn" onclick="setMsg(this);">
+    </span>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUERY와 CSS식별자</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        window.onload = function(){
+            //속성 이름으로 해당 속성이 있는 객체
+            //$("[속성이름]")
+            $("[name]").text("속성이름으로 찾은 name");
+            //속성의 이름과 값으로 찾기
+            //$("[속성이름='속성값']")
+            console.log($("[type='button']"));
+            $("[type='button']").css("background-color","royalblue")
+            .css("color","white").css("border","none");
+            //input type='text' 객체를 찾아서 값을 홍길동으로 바꾸기
+            $("[type='text']").val("홍길동");
+            //tag 이름과 속성이름과 속성값으로 찾기
+            //$("태그이름[속성이름='속성값']")
+            $("button[type='button']").css("width","100px");
+            $("input[type='button']").val("전우치");
+            // a의 href의 속성이 http:로 시작하는 객체를 찾아주세요
+            $("a[href^='http:']").text("http:으로 시작하는 주소");
+            //속성값에 특정 문자열이 포함되어있는 객체를 찾기
+            //[속성이름*='특정문자열']
+            //a 태그중에 google로 연결되는 링크를 찾으세요
+            $("a[href*='google']").text("구글");
+            //속성값이 특정 문자열로 끝나는 객체를 찾기
+            //[속성이름$='특정문자열']
+            $("[name$='Name']").text("Name으로 끝나는 속성값");
+            $("[id$='Id']").html("<div style='color:red; font-weight:bold;'>Id찾음</div>");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="input button"><br>
+    <button type="button">button</button><br>
+    <input type="text">
+    <div name="myName">div1</div>
+    <div id="myId">div2</div>
+    <a href="http://www.naver.com">naver</a><br>
+    <a href="https://www.google.com">google</a>
+</body>
+</html>

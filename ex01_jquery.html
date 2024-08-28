@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUERY</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        //JQUERY는 주로 DOM 객체를 더 쉽게 다루게 해줌
+        function getValue(){
+            //자바스크립트로 객체 찾기
+            let obj_JS = document.getElementById("uname");
+            console.log(obj_JS);
+            //JQUERY로 객체 찾기
+            //$(식별자)
+            let obj_jq = $("#uname");
+            console.log(obj_jq);
+            //자바스크립트의 추가함수
+            let obj_jsn = document.querySelector("#uname");
+            let arry = document.querySelectorAll(".msg_js");
+            console.log("obj_jsn: ",obj_jsn);
+            console.log(arry);
+            //값 호출
+            console.log(obj_JS.value);
+            //JQUERY 객체임에도 원소가 하나일 경우에 첫번째 원소를 잘 호출함
+            console.log(obj_jq.val());
+            //메세지를 출력할 객체 찾기
+            let msg_box_js = document.getElementsByClassName("msg_js")[0];
+            let msg_box_jq = $(".msg_jq");
+            let msg_box_jsn = document.querySelector(".msg_jsn");
+            console.log(msg_box_js);
+            console.log(msg_box_jq);
+            console.log(msg_box_jsn);
+            //객체의 값 바꾸기
+            msg_box_js.innerHTML = obj_JS.value;
+            msg_box_jq.text(obj_jq.val());
+            msg_box_jsn.innerHTML = obj_jsn.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="uname" value="홍길동">
+    <input type="button" value="내용확인" onclick="getValue();">
+    <hr>
+    <div class="msg_js">js</div>
+    <div class="msg_jq">jq</div>
+    <div class="msg_jsn">jsn</div>
+</body>
+</html>
