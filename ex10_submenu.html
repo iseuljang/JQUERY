@@ -8,19 +8,16 @@
         $(document).ready(function(){
             $("#menuA").click(function(){
                 $("#menutableA").css("display","table");
-                $("#menutableB, #menutableC").css("display","none");
             }).mouseout(function(){
                 $("#menutableA").css("display","none");
             });
             $("#menuB").click(function(){
                 $("#menutableB").css("display","table");
-                $("#menutableA, #menutableC").css("display","none");
             }).mouseout(function(){
                 $("#menutableB").css("display","none");
             });
             $("#menuC").click(function(){
                 $("#menutableC").css("display","table");
-                $("#menutableB, #menutableA").css("display","none");
             }).mouseout(function(){
                 $("#menutableC").css("display","none");
             });
