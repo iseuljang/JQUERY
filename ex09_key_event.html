@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>키 이벤트</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        /*
+        문서가 준비되면 input 객체를 찾아서
+        키눌림과 키올라옴에 대해서 이벤트함수를 작성
+        */
+        $(document).ready(function(){
+            $("input").keydown(function(){
+                //키가 눌렸을때
+                $(".msgbox").html("<span style='color:red; font-weight:bold;'>keydown</span>");
+            }).keyup(function(){
+                //키가 올라왔을때
+                $(".msgbox").html("<span style='color:green; font-weight:bold;'>keyup</span>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text"><br>
+    <span class="msgbox"></span>
+</body>
+</html>
