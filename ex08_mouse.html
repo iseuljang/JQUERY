@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 이벤트</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            /*
+            이미지에 마우스가 올라가면 폭을 살짝 늘림
+            이미지에서 마우스가 나가면 폭을 되돌림
+            이미지를 클릭하면 이미지의 src 속성을 불러와 
+            고양이면 강아지로, 강아지면 고양이로 변경
+            */
+            //이미지 객체 찾기
+            console.log($("#myImg"));
+            /*
+            jq 이벤트 함수는 연달아 작성이 가능
+            객체.이벤트함수(익명함수).이벤트함수(익명함수)...
+            */
+            $("#myImg").mouseover(function(){
+                //마우스 올라왔을때
+                $(this).attr("width","250px");
+            }).mouseout(function(){
+                //마우스 나갔을때
+                $(this).attr("width","200px");
+            }).click(function(){
+                //클릭되었을때
+                if($(this).attr("src") == "cat.jpg"){
+                    $(this).attr("src","dog.jpg");
+                }else{
+                    $(this).attr("src","cat.jpg");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="cat.jpg" alt="고양이 사진" width="200px" id="myImg">
+</body>
+</html>
