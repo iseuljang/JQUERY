@@ -6,20 +6,76 @@
     <script src="jquery-3.7.1.js"></script>
     <script>
         $(document).ready(function(){
+            /*
             $("#menuA").click(function(){
                 $("#menutableA").css("display","table");
             }).mouseout(function(){
                 $("#menutableA").css("display","none");
+                $(this).css("background-color","white");
+            }).mouseover(function(){
+                $(this).css("background-color","rgb(217, 224, 243)")
             });
             $("#menuB").click(function(){
                 $("#menutableB").css("display","table");
             }).mouseout(function(){
                 $("#menutableB").css("display","none");
+                $(this).css("background-color","white");
+            }).mouseover(function(){
+                $(this).css("background-color","rgb(247, 227, 235)")
             });
             $("#menuC").click(function(){
                 $("#menutableC").css("display","table");
             }).mouseout(function(){
                 $("#menutableC").css("display","none");
+                $(this).css("background-color","white");
+            }).mouseover(function(){
+                $(this).css("background-color","rgb(250, 235, 209)")
+            });
+            */
+            //
+            $("#menuA, #menuB, #menuC")
+            .mouseover(function(){
+                $(this).css("background-color","#B39783");
+                $(this).css("color","white");
+                $(this).css("font-weight","bold");
+            })
+            .click(function(){
+                /*
+                if($(this).attr("id") == "menuA"){
+                    $("#menutableA").css("display","table");
+                }else if($(this).attr("id") == "menuB"){
+                    $("#menutableB").css("display","table");
+                }else{
+                    $("#menutableC").css("display","table");
+                }
+                */
+                switch($(this).attr("id")){
+                    case "menuA" : 
+                    //display 상태를 뒤집는 함수
+                    // 보임 -> 안보임   안보임 -> 보임
+                    $("#menutableA").toggle();
+                    break;
+                    case "menuB" : 
+                    $("#menutableB").toggle();
+                    break;
+                    case "menuC" :
+                    $("#menutableC").toggle(); 
+                    break;
+                }
+            })
+            .mouseout(function(){
+                // $("#menutableA, #menutableB, #menutableC").css("display","none");
+                //$(".sub").css("display","none");
+                $(this).css("background-color","white");
+                $(this).css("color","black");
+            });
+            /*
+            새로운 객체에 이벤트 함수 작성
+            #menutableA, #menutableB, #menutableC에서 마우스가 나가면 
+            메뉴테이블을 안보이게 바꿈
+            */
+            $(".sub").mouseleave(function(){
+                $(this).toggle();
             });
         });
     </script>
@@ -57,7 +113,7 @@
         </tr>
     </table>
     <!-- 하위메뉴테이블 -->
-    <table border="1" id="menutableA">
+    <table border="1" id="menutableA" class="sub">
         <tr>
             <td><a href="https://www.naver.com">네이버</a></td>
         </tr>
@@ -67,11 +123,11 @@
         <tr>
             <td><a href="https://www.daum.net">다음</a></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><a href="https://www.coupang.com">쿠팡</a></td>
-        </tr>
+        </tr> -->
     </table>
-    <table border="1" id="menutableB">
+    <table border="1" id="menutableB" class="sub">
         <tr>
             <td><a href="https://www.naver.com">네이버</a></td>
         </tr>
@@ -81,11 +137,11 @@
         <tr>
             <td><a href="https://www.daum.net">다음</a></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><a href="https://www.coupang.com">쿠팡</a></td>
-        </tr>
+        </tr> -->
     </table>
-    <table border="1" id="menutableC">
+    <table border="1" id="menutableC" class="sub">
         <tr>
             <td><a href="https://www.naver.com">네이버</a></td>
         </tr>
@@ -95,9 +151,9 @@
         <tr>
             <td><a href="https://www.daum.net">다음</a></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><a href="https://www.coupang.com">쿠팡</a></td>
-        </tr>
+        </tr> -->
     </table>
     <!-- 내용테이블 -->
     <table border="1">
